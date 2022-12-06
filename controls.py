@@ -51,12 +51,16 @@ def update_bullets(screen, inos, bullets):
 
 def gun_kill(stats, screen, gun, inos, bullets):
     """"""
-    stats.guns_left -= 1
-    inos.empty()
-    bullets.empty()
-    create_army(screen, inos)
-    gun.create_gun()
-    time.sleep(2)
+    if stats.guns_left >0:
+        stats.guns_left -= 1
+        inos.empty()
+        bullets.empty()
+        create_army(screen, inos)
+        gun.create_gun()
+        time.sleep(2)
+    else:
+        stats.run_game =False
+        sys.exit()
 
 def update_inos(stats, screen, gun, inos, bullets):
     inos.update()
