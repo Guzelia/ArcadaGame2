@@ -43,7 +43,8 @@ def update_bullets(screen, stats, sc, inos, bullets):
             bullets.remove(bullet)
     collisions = pygame.sprite.groupcollide(bullets,inos, True, True)
     if collisions:
-        stats.score += 10
+        for inos in collisions.values():
+            stats.score += 10 * len(inos)
         sc.image_score()
     if len(inos) == 0:
         bullets.empty()
