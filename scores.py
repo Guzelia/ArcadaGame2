@@ -18,6 +18,11 @@ class Scores():
         self.score_rect. top = 20
 
 
+    def show_score(self):
+        self.screen.blit(self.score_img, self.score_rect)
+
+
+
 
 
 
